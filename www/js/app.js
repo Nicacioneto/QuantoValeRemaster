@@ -22,3 +22,19 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+    .state('/home', {
+      url: '/home',
+      templateUrl: 'js/Home/home.html',
+    });
+
+  $urlRouterProvider.otherwise("/");
+})
+.controller("MainController", ['$scope', '$ionicSideMenuDelegate', function($scope, $ionicSideMenuDelegate) {
+
+  $scope.toggleLeft = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  }
+}])
