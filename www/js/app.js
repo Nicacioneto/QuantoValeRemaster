@@ -25,18 +25,18 @@ angular.module('starter', ['ionic'])
   .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-      .state('/home', {
-        url: '/home',
-        templateUrl: 'js/Home/home.html',
-      })
-       $stateProvider
        .state('/ranking', {
         url: '/ranking',
         templateUrl: 'js/Ranking/ranking.html',
-      });
-
-    $urlRouterProvider.otherwise("/home");
+      })
+      .state('/login', {
+       url: '/login',
+       templateUrl: 'js/Login/login.html',
+       controller: 'LoginCtrl'
+     });
+    $urlRouterProvider.otherwise("/login");
   })
+
   .controller("MainController", ['$scope', '$ionicSideMenuDelegate', function($scope, $ionicSideMenuDelegate) {
 
     $scope.toggleLeft = function() {
