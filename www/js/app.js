@@ -27,11 +27,11 @@ angular.module('starter', ['ionic'])
     $stateProvider
        .state('/ranking', {
         url: '/ranking',
-        templateUrl: 'js/Ranking/ranking.html',
+        templateUrl: 'templates/ranking.html',
       })
       .state('/login', {
        url: '/login',
-       templateUrl: 'js/Login/login.html',
+       templateUrl: 'templates/login.html',
        controller: 'LoginCtrl'
      });
     $urlRouterProvider.otherwise("/login");
