@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -25,21 +25,37 @@ angular.module('starter', ['ionic'])
   .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-       .state('/ranking', {
-        url: '/ranking',
-        templateUrl: 'templates/ranking.html',
+      .state('app', {
+        url: '/app',
+        abstract: true,
+        templateUrl: 'templates/menu.html',
+        controller: 'AppCtrl'
       })
-      .state('/login', {
-       url: '/login',
-       templateUrl: 'templates/login.html',
-       controller: 'LoginCtrl'
-     });
-    $urlRouterProvider.otherwise("/login");
+
+      .state('app.ranking', {
+        url: '/ranking',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/ranking.html'
+          }
+        }
+      })
+
+      .state('app.login', {
+        url: '/login',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/login.html',
+            controller: 'LoginCtrl'
+          }
+        }
+      });
+    $urlRouterProvider.otherwise("app/login");
   })
 
-  .controller("MainController", ['$scope', '$ionicSideMenuDelegate', function($scope, $ionicSideMenuDelegate) {
+.controller("MainController", ['$scope', '$ionicSideMenuDelegate', function($scope, $ionicSideMenuDelegate) {
 
-    $scope.toggleLeft = function() {
-      $ionicSideMenuDelegate.toggleLeft();
-    }
-  }])
+  $scope.toggleLeft = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  }
+}])
