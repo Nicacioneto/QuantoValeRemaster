@@ -16,3 +16,17 @@
 	from { background-position: 0 0; }
 	to { background-position: 100% 0; }
 }
+
+.profile-info{
+  align-items: center;
+  margin-top: 25%;
+  filter: contrast(1.5);
+}
+
+.profile-image {
+	width: 150px;
+	height: 150px;
+	border-radius: 75px;
+	-webkit-border-radius: 75px;
+	-moz-border-radius: 75px;
+}

@@ -1,6 +1,15 @@
 <ion-view view-title="Login">
   <ion-content>
-    <div class="divHome">
+    <div ng-if="logged()">
+      <div class="profile-info text-center">
+        <img class="profile-image" ng-src="https://graph.facebook.com/{{ user.facebook.id }}/picture?width=700&height=700">
+        <h2>{{user.facebook.displayName}}</h2>
+        <p>{{user.facebook.email}}</p>
+      </div>
+
+
+    </div>
+    <div ng-if="!logged()"class="divHome">
       <button class="button button-positive button-block" ng-click="login()">
         <i class="ion-social-facebook">
         facebook
