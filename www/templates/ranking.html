@@ -1,5 +1,11 @@
 <ion-view view-title="Login">
   <ion-content>
     <h1>Ranking</h1>
-  </ion-content>
+<div ng-repeat="user in users">
+<br />  
+  User:{{user.name}}
+  Email:{{user.email}}
+  Score:{{user.score}}
+</div>
+
 </ion-view>

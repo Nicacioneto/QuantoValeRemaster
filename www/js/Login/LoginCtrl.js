@@ -1,6 +1,13 @@
 angular.module('starter')
 
-.controller('LoginCtrl', function($scope, $state) {
+.controller('LoginCtrl', function($scope, $state,factoryLogin) {
+
+
+
+
+
+
+
   $scope.login = function() {
     var ref = new Firebase("https://firefacetest.firebaseio.com");
 
@@ -15,6 +22,16 @@ angular.module('starter')
                         return true;
                     }
         $scope.user = authData;
+
+        console.log(authData);
+
+        var user = {
+          name: authData.facebook.displayName,
+          email: authData.facebook.email,
+          score: '0'
+        }
+            factoryLogin.save(user);
+
         console.log("Authenticated successfully:", $scope.user);
         $state.go('app.login');
       }
