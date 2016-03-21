@@ -1,5 +1,5 @@
 <ion-view view-title="Login">
-  <ion-content>
+  <ion-content scroll="false">
     <div ng-if="logged()">
       <div class="profile-info text-center">
         <img class="profile-image" ng-src="https://graph.facebook.com/{{ user.facebook.id }}/picture?width=700&height=700">
@@ -9,11 +9,11 @@
 
 
     </div>
-    <div ng-if="!logged()"class="divHome">
+    <div ng-if="!logged()" class="divHome">
       <button class="button button-positive button-block" ng-click="login()">
         <i class="ion-social-facebook">
         facebook
-    </i>
+        </i>
       </button>
     </div>
   </ion-content>

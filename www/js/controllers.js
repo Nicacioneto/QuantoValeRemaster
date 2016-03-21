@@ -39,4 +39,14 @@ angular.module('starter')
       $scope.closeLogin();
     }, 1000);
   };
+
+  var defaultPageSize = 6;
+
+  $scope.currentPage = 1;
+  $scope.pageSize = $scope.currentPage * defaultPageSize;
+
+  $scope.loadNextPage = function() {
+    $scope.currentPage++;
+    $scope.pageSize = $scope.currentPage * defaultPageSize;
+  }
 })
