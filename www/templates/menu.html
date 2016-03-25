@@ -13,16 +13,26 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
-    </ion-header-bar>
+
     <ion-content overflow-scroll="false">
       <ion-list>
+        <ion-item menu-close  class="item-icon-left profile-home">
+              <img src="img/ionic.png" class="profile-image-home"  />
+              <p> <h3>João Henrique </h3></p>
+              <p><h3>Score: 33 </h3> </p>
+        </ion-item>
+        <ion-item menu-close>
+            <i class="icon ion-home" ></i>
+                Home
+        </ion-item>
         <ion-item menu-close href="#/app/login">
           Login
         </ion-item>
         <ion-item menu-close href="#/app/ranking">
           Ranking
+        </ion-item>
+        <ion-item menu-close href="#/app/email">
+          Email
         </ion-item>
       </ion-list>
     </ion-content>

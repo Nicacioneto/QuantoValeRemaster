@@ -1,4 +1,4 @@
-<ion-view view-title="Login">
+<ion-view>
   <ion-content scroll="false">
     <div ng-if="logged()">
       <div class="profile-info text-center">
@@ -7,13 +7,33 @@
         <p>{{user.facebook.email}}</p>
       </div>
 
-
     </div>
-    <div ng-if="!logged()" class="divHome">
-      <button class="button button-positive button-block" ng-click="login()">
-        <i class="ion-social-facebook">
+    <div ng-if="!logged()" class="padding">
+      <div class="hero no-header flat">
+        <div class="content">
+          <img class="quantovale" src="img/quantovale.png">
+        </div>
+      </div>
+      <div class="list">
+        <label class="item item-input item-md-label" placeholder="E-mail" highlight-color="balanced" type="text">
+          <input type="text" ng-model="user.email">
+          <span class="input-label">E-mail</span>
+          <div class="highlight highlight-balanced"></div>
+        </label>
+
+        <label class="item item-input item-md-label" placeholder="E-mail" highlight-color="energized" type="text">
+          <input type="text" ng-model="user.password">
+          <span class="input-label">Password</span>
+          <div class="highlight highlight-energized"></div>
+        </label>
+      </div>
+      <div class="button-bar">
+        <a type="submit" class="button button-positive waves-effect waves-button waves-light" ng-click="create(user)">Sign up</a>
+        <a type="submit" class="button button-positive waves-effect waves-button waves-light" ng-click="loginEmail(user)">Sign in</a>
+      </div>
+
+      <button class="button button-positive button-block icon-left ion-social-facebook" ng-click="login()">
         facebook
-        </i>
       </button>
     </div>
   </ion-content>
