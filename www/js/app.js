@@ -41,8 +41,15 @@ angular.module('starter', ['ionic','ngResource'])
           }
         }
       })
-
-
+      .state('app.email', {
+        url: '/email',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/criarEmail.html',
+            controller: 'LoginCtrl'
+          }
+        }
+      })
       .state('app.login', {
         url: '/login',
         views: {

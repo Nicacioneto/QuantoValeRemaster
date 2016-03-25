@@ -1,4 +1,4 @@
-<ion-view view-title="Login">
+<ion-view >
   <ion-content scroll="false">
     <div ng-if="logged()">
       <div class="profile-info text-center">
@@ -7,14 +7,16 @@
         <p>{{user.facebook.email}}</p>
       </div>
 
-
     </div>
-    <div ng-if="!logged()" class="divHome">
+    <div ng-if="!logged()">
       <button class="button button-positive button-block" ng-click="login()">
         <i class="ion-social-facebook">
         facebook
         </i>
       </button>
     </div>
+        <a menu-close href="#/app/email"  class="ion-social-facebook">
+          Acesse com email
+        </a>
   </ion-content>
 </ion-view>
