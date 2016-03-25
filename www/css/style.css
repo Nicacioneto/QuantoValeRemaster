@@ -1,4 +1,7 @@
 /* Empty. Add your own CSS if you like */
+.bar.bar-light {
+  background-color: rgba(255, 255, 255, .66) !important;
+}
 
 .scroll-content {
   background-image: url('../img/bg-clouds.png');
@@ -6,6 +9,7 @@
   background-repeat: repeat-x;
   background-size: cover;
   animation: animatedBackground 50s linear infinite;
+  overflow: visible !important;
 }
 
 .divBar {

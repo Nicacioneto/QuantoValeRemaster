@@ -1,7 +1,7 @@
-<ion-view view-title="Login">
+<ion-view view-title="Ranking">
   <ion-content overflow-scroll="false">
-    <h1>Ranking</h1> Page: {{currentPage}} Total: {{pageSize}}
-    <ion-list ng-repeat="user in users| limitTo:pageSize">
+
+    <ion-list dir-paginate="user in users|itemsPerPage:7">
 
       <a class="item item-avatar" href="#">
         <img ng-src="https://graph.facebook.com/{{ user.id }}/picture?width=700&height=700">
@@ -9,9 +9,6 @@
         <p>Score: {{user.score}}</p>
       </a>
     </ion-list>
-
-    <button class="button button-dark button-full button-clear" ng-click="loadNextPage()">
-      Show More
-    </button>
+    <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" template-url="lib/angularUtils-pagination/dirPagination.tpl.html"></dir-pagination-controls>
   </ion-content>
 </ion-view>
