@@ -8,11 +8,11 @@ Ionic Framework ♥ Material Design
 See our [releases](https://github.com/zachsoft/ionic-material/releases) and other [versions](https://github.com/zachsoft/ionic-material/tags)
 
 ## Documentation and Demo App (in-browser simulation)
-[Documentation Application @ ionicmaterial.com](http://ionicmaterial.com/demo/) 
+[Documentation Application @ ionicmaterial.com](http://ionicmaterial.com/demo/)
 (Use the ☰ menu for Documentation sections)
 
 # Quick Start
-## Step 1: Install using [Bower](http://bower.io) 
+## Step 1: Install using [Bower](http://bower.io)
 
 ```shell
  cd /PATH/TO/YOUR/PROJECT
@@ -25,11 +25,11 @@ See our [releases](https://github.com/zachsoft/ionic-material/releases) and othe
  <link href='https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic' rel='stylesheet' type='text/css'>
 ```
 
-#### via Bower 
-Check out [RobotoDraft by RaiButera on Github](https://github.com/raibutera/robotodraft) 
+#### via Bower
+Check out [RobotoDraft by RaiButera on Github](https://github.com/raibutera/robotodraft)
 
 ```shell
-bower install robotodraft 
+bower install robotodraft
 ```
 
 **using Sass?** instructions for [raibutera/robotodraft](https://github.com/raibutera/robotodraft) + scss:
@@ -46,7 +46,7 @@ $RobotoDraftFontVersion: "1.0.0";
 ### Step 3: Add Ionic Material stylesheets and scripts
 Add `ionic.material.min.css` and `ionic.material.min.js` to your `index.html`
 
-```html 
+```html
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="lib/ionic-material/ionic.material.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -55,7 +55,7 @@ Add `ionic.material.min.css` and `ionic.material.min.js` to your `index.html`
     <script src="lib/ionic-material/ionic.material.min.js"></script>
 ```
 
-### Step 4: Inject Ionic & Ionic Material into your Ionic App 
+### Step 4: Inject Ionic & Ionic Material into your Ionic App
 
 ```javascript
     var app = angular.module('YOUR_APP_NAME', ['ionic', 'ionic-material']);
@@ -71,7 +71,7 @@ The angular services `ionicMaterialInk` and `ionicMaterialMotion` are used to ac
 
 **NB:** Make sure the relevant services are injected into your controllers.
 
-In your controllers: 
+In your controllers:
 - `ionicMaterialInk.displayEffect()` (will need to happen once on controller activation and then repeat every time the objects update)
 - `ionicMaterialMotion.ripple()` (etc.)
 
@@ -85,7 +85,7 @@ Instructions:
 
 Look at `gulpfile.js` for how the process works.
 
-## Development 
+## Development
 This project uses [Webpack](http://webpack.github.io/)
 
 ## Contributing
@@ -101,7 +101,7 @@ Ionic material is aimed at being an extension library for the Ionic Framework, m
 As a 100% free open-source project, **developer participation is encouraged**, as much or little as possible.
 
 ### Can I use Ionic and Angular Material together?
-*Ionic* and *Angular Material* are fairly incompatible (you can add them to the same project, but the styling will be extremely inconsistent and none of the UI components will work cross-framework, eg. an ionic side menu with material tabs). Ionic is 1.0 and angular material is still pre-1.0. 
+*Ionic* and *Angular Material* are fairly incompatible (you can add them to the same project, but the styling will be extremely inconsistent and none of the UI components will work cross-framework, eg. an ionic side menu with material tabs). Ionic is 1.0 and angular material is still pre-1.0.
 
 **Ionic Material** is best explained as a "material extension" to Ionic, rather than to Angular as a whole. The difference isn't just semantics - Ionic Material extends the actual ionic framework namespace (in JS), renders material styles on the ionic elements (following ionic's conventions), and will aim to follow the releases of Ionic, and support material theming, ink, and motion for any new Ionic release.
 
@@ -113,7 +113,7 @@ Please see our [contribution guidelines](CONTRIBUTING.md)
 Want to become an official collaborator? Please contact @zachsoft
 
 
-## Roadmap and the Future 
+## Roadmap and the Future
 See [Milestones](https://github.com/zachsoft/ionic-material/milestones)
 
 ### Rough Ideas

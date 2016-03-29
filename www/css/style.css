@@ -34,7 +34,7 @@
 }
 
 ul#menu {
-    padding: 0;
+  margin: auto;
 }
 
 ul#menu li {
@@ -44,7 +44,7 @@ ul#menu li {
 ul#menu li a {
     background-color: rgb(57, 94, 210);
     color: white;
-    padding: 10px 15px;
+    padding: 10px 12px;
     text-decoration: none;
     border-radius: 4px 4px 4px 4px;
 }

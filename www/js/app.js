@@ -50,16 +50,25 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
           }
         }
       })
-      .state('app.login', {
-        url: '/login',
+      .state('app.home', {
+        url: '/home',
         views: {
           'menuContent': {
-            templateUrl: 'templates/login.html',
+            templateUrl: 'templates/home.html',
+            controller: 'LoginCtrl'
+          }
+        }
+      })
+      .state('app.signup', {
+        url: '/signup',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/signup.html',
             controller: 'LoginCtrl'
           }
         }
       });
-    $urlRouterProvider.otherwise("app/login");
+    $urlRouterProvider.otherwise("app/home");
   })
 
 .controller("MainController", ['$scope', '$ionicSideMenuDelegate', function($scope, $ionicSideMenuDelegate) {
