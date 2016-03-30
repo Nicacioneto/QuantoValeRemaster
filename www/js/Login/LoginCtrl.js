@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('LoginCtrl', function($scope, $state, factoryLogin) {
+.controller('LoginCtrl', function($scope, $state, factoryLogin, factoryRegister) {
 
   $scope.login = function() {
     var ref = new Firebase("https://firefacetest.firebaseio.com");
@@ -23,7 +23,7 @@ angular.module('starter')
           score: '0',
           idFacebook: authData.facebook.id
         }
-        factoryLogin.save(user);
+        factoryRegister.save(user);
 
         console.log("Authenticated successfully:", $scope.user);
         $state.go('app.login');
@@ -32,43 +32,21 @@ angular.module('starter')
   }
 
   $scope.create = function(user) {
-    var ref = new Firebase("https://firefacetest.firebaseio.com");
 
-    ref.createUser({
-      email: user.email,
-      password: user.password
-    }, function(error, userData) {
-      if (error) {
-        console.log("Error creating user:", error);
-        alert(error, userData)
-      } else {
-        var user = {
-          name: '',
-          email: userData.email,
-          score: '0',
-          idFacebook: userData.uid
-        }
-        factoryLogin.save(user);
-        console.log(userData)
-      }
+  factoryRegister.save(user,function(user){
+      alert("Succes")
+      },function(error){
+        alert("Ocorreu um problema ou esse email já é cadastrado")
     });
   }
 
 
   $scope.loginEmail = function(user) {
-    var ref = new Firebase("https://firefacetest.firebaseio.com");
-    ref.authWithPassword({
-      email: user.email,
-      password: user.password
-    }, function(error, userData) {
-      if (error) {
-        console.log("Error creating user:", error);
-        alert(error, userData)
-        console.log(userData);
-      } else {
-        console.log(userData);
-      }
-    });
+    factoryLogin.save(user,function(){
+          alert("login")
+      },function(){
+          alert("Erro")
+      })
   }
 
 })
