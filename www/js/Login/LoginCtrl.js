@@ -42,7 +42,7 @@ angular.module('starter')
 
 
   $scope.loginEmail = function(user) {
-    factoryLogin.save(user,function(){
+    factoryLogin.get(user,function(){
           alert("login")
       },function(){
           alert("Erro")
