@@ -2,23 +2,9 @@
   <ion-content scroll="false">
     <div class="padding">
       <div class="list">
-        <label class="item item-input item-md-label" placeholder="E-mail" highlight-color="balanced" type="text">
-          <input type="text">
-          <span class="input-label">Nome do usuário</span>
-          <div class="highlight highlight-assertive"></div>
-        </label>
-
-        <label class="item item-input item-md-label" placeholder="E-mail" highlight-color="balanced" type="text">
-          <input type="text" ng-model="user.email">
-          <span class="input-label">E-mail</span>
-          <div class="highlight highlight-balanced"></div>
-        </label>
-
-        <label class="item item-input item-md-label" placeholder="E-mail" highlight-color="energized" type="text">
-          <input type="password" ng-model="user.password">
-          <span class="input-label">Senha</span>
-          <div class="highlight highlight-energized"></div>
-        </label>
+        <ion-md-input placeholder="Nome do usuário" highlight-color="balanced" type="text"></ion-md-input>
+        <ion-md-input placeholder="E-mail" highlight-color="balanced" type="text" ng-model="user.email"></ion-md-input>
+        <ion-md-input placeholder="Senha" highlight-color="energized" type="password" ng-model="user.password"></ion-md-input>
       </div>
       <div class="button-bar">
         <a type="submit" class="button button-positive waves-effect waves-button waves-light" ng-click="create(user)">criar conta</a>
