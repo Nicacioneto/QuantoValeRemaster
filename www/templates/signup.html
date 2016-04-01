@@ -2,7 +2,7 @@
   <ion-content scroll="false" ng-class="{expanded:$scope.isExpanded}">
     <div class="padding">
       <div class="list">
-        <ion-md-input placeholder="Nome do usuário" highlight-color="balanced" type="text"></ion-md-input>
+        <ion-md-input placeholder="Nome do usuário" highlight-color="balanced" type="text" ng-model="user.name"></ion-md-input>
         <ion-md-input placeholder="E-mail" highlight-color="balanced" type="text" ng-model="user.email"></ion-md-input>
         <ion-md-input placeholder="Senha" highlight-color="energized" type="password" ng-model="user.password"></ion-md-input>
       </div>
