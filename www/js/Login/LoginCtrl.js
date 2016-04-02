@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('LoginCtrl', function($scope, $state, factoryLogin, factoryRegister, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
+.controller('LoginCtrl', function($scope, $state, factoryLogin, factoryRegister, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $rootScope) {
 
   // Set Header
 $scope.$parent.showHeader();
@@ -55,8 +55,8 @@ $scope.$parent.setHeaderFab(false);
 
   $scope.loginEmail = function(user) {
     factoryLogin.get(user,function(user){
-      $scope.user = user;
-      console.log($scope.user);
+      $rootScope.user = user;
+      console.log($rootScope.user);
       $scope.logged = function() {
         return true;
       }
