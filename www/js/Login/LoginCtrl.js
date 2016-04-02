@@ -62,6 +62,47 @@ $scope.$parent.setHeaderFab(false);
     console.log ("Total = " +total);
   }
 
+  $scope.true = function() {
+    return true;
+  }
+
+  $scope.false = function() {
+    return false;
+  }
+
+  $scope.question = function() {
+
+    compare = function(x,y) {
+
+      if (x == y){
+        correct_answer += 1;
+        score(correct_answer);
+        console.log ("CORRECT == " + correct_answer);
+      }
+      else{
+        correct_answer = 0;
+        console.log ("CORRECT == " + correct_answer);
+      }
+    }
+
+    score = function(correct_answer) {
+
+      if (correct_answer < 3){
+        score += 50;
+        console.log ("SCORE == " + score);
+      }
+      else if (correct_answer >= 3 && correct_answer < 6){
+        score += 100;
+        console.log ("SCORE == " + score);
+      }
+      else{
+        score += 200;
+        console.log ("SCORE == " + score);
+      }
+
+    }
+  }
+
   $scope.loginEmail = function(user) {
     factoryLogin.get(user,function(user){
       $scope.user = user;

@@ -79,7 +79,8 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
           views: {
               'menuContent': {
                   templateUrl: 'templates/game.html',
-                  controller: 'GameCtrl'
+                  controller: 'LoginCtrl'
+
               },
               'fabContent': {
                   template: '<button id="fab-gallery" class="button button-fab button-fab-top-right expanded button-energized-900 drop"><i class="icon ion-heart"></i></button>',
