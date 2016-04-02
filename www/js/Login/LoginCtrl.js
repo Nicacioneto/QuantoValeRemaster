@@ -23,6 +23,9 @@ $scope.$parent.setHeaderFab(false);
         $scope.logged = function() {
           return true;
         }
+        $scope.fblogged = function(){
+          return true;
+        }
         $scope.user = authData;
         console.log(authData);
         var user = {
@@ -43,6 +46,7 @@ $scope.$parent.setHeaderFab(false);
 
   factoryRegister.save(user,function(user){
       alert("Succes")
+      console.log(user);
       },function(error){
         alert("Ocorreu um problema ou esse email já é cadastrado")
     });
@@ -50,11 +54,20 @@ $scope.$parent.setHeaderFab(false);
 
 
   $scope.loginEmail = function(user) {
-    factoryLogin.get(user,function(){
-          alert("login")
-      },function(){
-          alert("Erro")
-      })
+    factoryLogin.get(user,function(user){
+      $scope.user = user;
+      console.log($scope.user);
+      $scope.logged = function() {
+        return true;
+      }
+      $scope.fblogged = function(){
+        return false;
+      }
+    },function(){
+        $scope.logged = function() {
+          return false;
+        }
+    })
   }
 
 })
