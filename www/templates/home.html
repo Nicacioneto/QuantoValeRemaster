@@ -1,14 +1,6 @@
-<ion-view hide-nav-bar="false">
-  <ion-content scroll="false">
-    <div ng-if="logged()">
-      <div class="profile-info text-center">
-        <img class="profile-image" ng-src="https://graph.facebook.com/{{ user.facebook.id }}/picture?width=700&height=700">
-        <h2>{{user.facebook.displayName}}</h2>
-        <p>{{user.facebook.email}}</p>
-      </div>
-
-    </div>
-    <div ng-if="!logged()" class="padding">
+<ion-view>
+  <ion-content scroll="false" ng-class="{expanded:$scope.isExpanded}">
+    <div class="padding">
       <div class="hero no-header flat">
         <div class="content">
           <img class="quantovale" src="img/quantovale.png">
@@ -19,7 +11,7 @@
         <ion-md-input placeholder="Senha" highlight-color="energized" type="password" ng-model="user.password"></ion-md-input>
       </div>
       <div class="button-bar">
-        <a type="submit" class="button button-assertive waves-effect waves-button waves-light" ng-click="loginEmail(user)">Entrar</a>
+        <a type="submit" class="button button-assertive waves-effect waves-button waves-light" ng-click="loginEmail(user)" >Entrar</a>
       </div>
       <div class="padding">
         <div class="button-bar">

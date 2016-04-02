@@ -1,0 +1,10 @@
+<ion-view view-title="Perfil">
+  <ion-content ng-class="{expanded:$scope.isExpanded}">
+    <div class="profile-info text-center">
+      <img class="profile-image" ng-src="https://graph.facebook.com/{{ user.facebook.id }}/picture?width=700&height=700">
+      <h2>{{data}}</h2>
+      <p>{{users}}</p>
+    </div>
+    <button ui-sref="app.game">bla</button>
+  </ion-content>
+</ion-view>

@@ -1,6 +1,14 @@
 angular.module('starter')
 
-.controller('LoginCtrl', function($scope, $state, factoryLogin, factoryRegister) {
+.controller('LoginCtrl', function($scope, $state, factoryLogin, factoryRegister, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
+
+  // Set Header
+$scope.$parent.showHeader();
+$scope.$parent.clearFabs();
+$scope.isExpanded = false;
+$scope.$parent.setExpanded(false);
+$scope.$parent.setHeaderFab(false);
+
 
   $scope.login = function() {
     var ref = new Firebase("https://firefacetest.firebaseio.com");
@@ -26,7 +34,7 @@ angular.module('starter')
         factoryRegister.save(user);
 
         console.log("Authenticated successfully:", $scope.user);
-        $state.go('app.login');
+        $state.go('app.profile');
       }
     });
   }

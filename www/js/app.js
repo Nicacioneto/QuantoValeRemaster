@@ -22,7 +22,10 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
       }
     });
   })
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+    $ionicConfigProvider.views.maxCache(0);
+
 
     $stateProvider
       .state('app', {
@@ -41,6 +44,18 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
           }
         }
       })
+      .state('app.profile', {
+        url: '/profile',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/profile.html',
+            controller: 'LoginCtrl'
+          },
+            'fabContent': {
+                template: ''
+            }
+        }
+    })
       .state('app.email', {
         url: '/email',
         views: {
@@ -58,6 +73,23 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
             controller: 'LoginCtrl'
           }
         }
+      })
+      .state('app.game', {
+          url: '/game',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/game.html',
+                  controller: 'GameCtrl'
+              },
+              'fabContent': {
+                  template: '<button id="fab-gallery" class="button button-fab button-fab-top-right expanded button-energized-900 drop"><i class="icon ion-heart"></i></button>',
+                  controller: function ($timeout) {
+                      $timeout(function () {
+                          document.getElementById('fab-gallery').classList.toggle('on');
+                      }, 600);
+                  }
+              }
+          }
       })
       .state('app.signup', {
         url: '/signup',

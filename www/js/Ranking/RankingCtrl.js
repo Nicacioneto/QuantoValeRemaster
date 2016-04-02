@@ -4,7 +4,10 @@ angular.module('starter')
 
   factoryRanking.then(function(data) {
     //Passando os users para a pagina de Ranking
+    console.log(data);
     $scope.users = data.data;
+
+
   });
 
 

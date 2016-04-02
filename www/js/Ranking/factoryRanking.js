@@ -1,9 +1,5 @@
 angular.module('starter')
 
-.factory('factoryRanking', function($http) {
-
-  return  $http.get("http://quantovale.herokuapp.com/");
-
-
-
+.factory('factoryRanking', function($resource) {
+  return  $resource("http://quantovale.herokuapp.com//users/ranking");
 })
