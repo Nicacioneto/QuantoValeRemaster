@@ -52,7 +52,12 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
             controller: 'LoginCtrl'
           },
             'fabContent': {
-                template: ''
+                template: ' ',
+                controller: function ($timeout) {
+                    /*$timeout(function () {
+                        document.getElementById('fab-profile').classList.toggle('on');
+                    }, 800);*/
+                }
             }
         }
     })
@@ -82,7 +87,7 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
                   controller: 'GameCtrl'
               },
               'fabContent': {
-                  template: '<button id="fab-gallery" class="button button-fab button-fab-top-right expanded button-energized-900 drop"><i class="icon ion-heart"></i></button>',
+                  template: '<button id="fab-gallery" class="button button-fab button-fab-top-right expanded button-energized-900 drop">Score</button>',
                   controller: function ($timeout) {
                       $timeout(function () {
                           document.getElementById('fab-gallery').classList.toggle('on');
