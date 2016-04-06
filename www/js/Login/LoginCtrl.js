@@ -9,24 +9,16 @@ $scope.isExpanded = false;
 $scope.$parent.setExpanded(false);
 $scope.$parent.setHeaderFab(false);
 
-
   $scope.login = function() {
     var ref = new Firebase("https://firefacetest.firebaseio.com");
 
     ref.authWithOAuthPopup("facebook", function(error, authData) {
       if (error) {
-        $scope.logged = function() {
-          return false;
-        }
         console.log("Login Failed!", error);
       } else {
-        $scope.logged = function() {
-          return true;
-        }
-        $scope.fblogged = function(){
-          return true;
-        }
-        $scope.user = authData;
+        $rootScope.fblogged = true;
+        $rootScope.logged = true;
+        $rootScope.user = authData;
         console.log(authData);
         var user = {
           name: authData.facebook.displayName,
@@ -57,16 +49,11 @@ $scope.$parent.setHeaderFab(false);
     factoryLogin.get(user,function(user){
       $rootScope.user = user;
       console.log($rootScope.user);
-      $scope.logged = function() {
-        return true;
-      }
-      $scope.fblogged = function(){
-        return false;
-      }
-    },function(){
-        $scope.logged = function() {
-          return false;
-        }
+      $state.go('app.profile');
+      $rootScope.fblogged = false;
+      $rootScope.logged = true;
+    },function(error){
+      console.log(error);
     })
   }
 

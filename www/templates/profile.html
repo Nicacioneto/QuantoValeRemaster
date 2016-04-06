@@ -1,10 +1,21 @@
 <ion-view view-title="Perfil">
   <ion-content ng-class="{expanded:$scope.isExpanded}">
-    <div class="profile-info text-center">
+    <div ng-if="fblogged" class="profile-info text-center">
       <img class="profile-image" ng-src="https://graph.facebook.com/{{ user.facebook.id }}/picture?width=700&height=700">
-      <h2>{{data}}</h2>
-      <p>{{users}}</p>
+      <h2>{{user.facebook.displayName}}</h2>
+      <p>{{user.facebook.email}}</p>
     </div>
-    <button ui-sref="app.game">bla</button>
+    <div ng-if="!fblogged" class="profile-info text-center">
+      <img class="profile-image" ng-src="img/ionic.png">
+      <h2>{{user.name}}</h2>
+      <p>{{user.email}}</p>
+    </div>
+    <div class="padding">
+      <div class="button-bar">
+        <button ui-sref="app.game"class="button button-small button-positive light-bg waves-effect waves-button waves-light">
+          Novo Jogo
+        </button>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
