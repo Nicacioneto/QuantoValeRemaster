@@ -52,7 +52,7 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
             controller: 'LoginCtrl'
           },
             'fabContent': {
-                template: ' ',
+              template: '<div class="button-fab"></div>',
                 controller: function ($timeout) {
                     /*$timeout(function () {
                         document.getElementById('fab-profile').classList.toggle('on');
@@ -75,8 +75,11 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
         views: {
           'menuContent': {
             templateUrl: 'templates/home.html',
-            controller: 'LoginCtrl'
-          }
+            controller: 'HomeCtrl'
+          },
+            'fabContent': {
+              template: ''
+            }
         }
       })
       .state('app.game', {

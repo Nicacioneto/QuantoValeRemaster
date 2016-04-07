@@ -15,8 +15,14 @@
 
   <ion-side-menu side="right">
     <ion-header-bar class="dark-bg expanded">
+      <div ng-if="fblogged">
+        <span class="avatar" style="background: url('https://graph.facebook.com/{{ user.facebook.id }}/picture?width=700&height=700'); background-size: cover;"></span>
+        <h2>{{user.facebook.displayName}}</h2>
+      </div>
+      <div ng-if="!fblogged">
         <span class="avatar" style="background: url('img/ionic.png'); background-size: cover;"></span>
-        <h2>Thronester</h2>
+        <h2>{{user.name}}</h2>
+      </div>
     </ion-header-bar>
     <ion-content scroll="false" class="stable-bg has-expanded-header">
       <ion-list class="background-side">

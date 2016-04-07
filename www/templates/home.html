@@ -1,18 +1,22 @@
 <ion-view>
-  <ion-content scroll="false" ng-class="{expanded:$scope.isExpanded}">
-    <div class="padding">
-      <div class="hero no-header flat">
-        <div class="content">
-          <img class="quantovale" src="img/quantovale.png">
+  <ion-content>
+    <div ng-if="!logged">
+      <div class="padding">
+        <div class="hero no-header flat">
+          <div class="content">
+            <img class="quantovale" src="img/quantovale.png">
+          </div>
         </div>
-      </div>
-      <div ng-if="!logged">
+
+
         <div class="list">
           <ion-md-input placeholder="E-mail" highlight-color="balanced" type="text" ng-model="user.email"></ion-md-input>
           <ion-md-input placeholder="Senha" highlight-color="energized" type="password" ng-model="user.password"></ion-md-input>
         </div>
         <div class="button-bar">
-          <a type="submit" class="button button-assertive waves-effect waves-button waves-light" ng-click="loginEmail(user)" >Entrar</a>
+          <a type="submit" class="button button-assertive waves-effect waves-button waves-light" ng-click="loginEmail(user)">
+            Entrar
+          </a>
         </div>
         <div class="padding">
           <div class="button-bar">
@@ -25,17 +29,21 @@
           </button>
         </div>
       </div>
+    </div>
 
-      <div ng-if="logged">
-        <div class="padding">
-          <div class="button-bar">
-            <button ui-sref="app.profile"class="button button-small button-positive light-bg waves-effect waves-button waves-light">
-              Meu Perfil
-            </button>
+    <div ng-if="logged">
+      <div class="padding">
+        <div class="hero no-header flat">
+          <div class="content">
+            <img class="quantovale" src="img/quantovale.png">
           </div>
         </div>
+        <div class="button-bar">
+          <button ui-sref="app.profile" class="button button-small button-positive light-bg waves-effect waves-button waves-light">
+            Meu Perfil
+          </button>
+        </div>
       </div>
-
     </div>
   </ion-content>
 </ion-view>
