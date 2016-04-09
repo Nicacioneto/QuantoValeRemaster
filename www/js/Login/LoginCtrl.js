@@ -1,6 +1,8 @@
 angular.module('starter')
 
-.controller('LoginCtrl', function($scope, $state, factoryLogin, factoryRegister,serviceLogin,$stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $rootScope) {
+.controller('LoginCtrl', function($scope, $state, factoryLogin, factoryRegister,
+  serviceLogin,$stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk,
+  $rootScope, $ionicPopup) {
 
   // Set Header
 $scope.$parent.showHeader();
@@ -14,7 +16,10 @@ $scope.$parent.setHeaderFab(false);
 
     ref.authWithOAuthPopup("facebook", function(error, authData) {
       if (error) {
-        console.log("Login Failed!", error);
+        $ionicPopup.alert({
+          title: 'Erro!',
+          template: 'Login Falhou'
+        });
       }
 
       else {
@@ -46,10 +51,27 @@ $scope.$parent.setHeaderFab(false);
       alert("Succes")
       console.log(user);
       },function(error){
-        alert("Ocorreu um problema ou esse email já é cadastrado")
+        $ionicPopup.alert({
+          title: 'Erro!',
+          template: 'Cadastro falhou, verifique os dados ou se o email ja foi cadastrado'
+        });
     });
   }
 
+  $scope.logout = function(user) {
+    serviceLogin.setUser(
+      null,
+      null,
+      0,
+      null
+    );
+    factoryRegister.save(serviceLogin.getUser());
+    $rootScope.user = serviceLogin.getUser();
+    console.log($rootScope.user);
+    $state.go('app.home');
+    $rootScope.fblogged = false;
+    $rootScope.logged = false;
+  }
 
   $scope.loginEmail = function(user) {
     factoryLogin.get(user,function(user){
@@ -59,13 +81,18 @@ $scope.$parent.setHeaderFab(false);
       $rootScope.fblogged = false;
       $rootScope.logged = true;
     },function(error){
-      console.log(error);
+      $ionicPopup.alert({
+        title: 'Erro!',
+        template: 'Login Falhou'
+      });
     })
   }
 
 })
 
-.controller('HomeCtrl', function($scope, $state, factoryLogin, factoryRegister, $stateParams, serviceLogin,$timeout, ionicMaterialMotion, ionicMaterialInk, $rootScope) {
+.controller('HomeCtrl', function($scope, $state, factoryLogin, factoryRegister,
+  $stateParams, serviceLogin,$timeout, ionicMaterialMotion, ionicMaterialInk,
+  $rootScope, $ionicPopup) {
     $scope.$parent.clearFabs();
     $timeout(function() {
         $scope.$parent.hideHeader();
@@ -78,22 +105,27 @@ $scope.$parent.setHeaderFab(false);
       ref.authWithOAuthPopup("facebook", function(error, authData) {
         if (error) {
           console.log("Login Failed!", error);
+          $ionicPopup.alert({
+            title: 'Erro!',
+            template: 'Login Falhou'
+          });
         }
 
         else {
           $rootScope.fblogged = true;
           $rootScope.logged = true;
-          $rootScope.user = authData;
+          console.log(authData);
 
           serviceLogin.setUser(
-            authData.facebook.name,
+            authData.facebook.displayName,
             authData.facebook.email,
             0,
             authData.facebook.id
           );
           factoryRegister.save(serviceLogin.getUser());
           $state.go('app.profile');
-
+          $rootScope.user = serviceLogin.getUser();
+          console.log($rootScope.user);
         }
       });
     }
@@ -101,23 +133,53 @@ $scope.$parent.setHeaderFab(false);
     $scope.create = function(user) {
 
     factoryRegister.save(user,function(user){
-        alert("Succes")
+        $ionicPopup.alert({
+          title: 'Sucesso!',
+          template: 'Logado com sucesso!'
+        });
         console.log(user);
         },function(error){
-          alert("Ocorreu um problema ou esse email já é cadastrado")
+          $ionicPopup.alert({
+            title: 'Erro!',
+            template: 'Cadastro falhou, verifique os dados ou se o email ja foi cadastrado'
+          });
       });
     }
 
+    $scope.logout = function(user) {
+      serviceLogin.setUser(
+        null,
+        null,
+        0,
+        null
+      );
+      factoryRegister.save(serviceLogin.getUser());
+      $rootScope.user = serviceLogin.getUser();
+      console.log($rootScope.user);
+      $state.go('app.home');
+      $rootScope.fblogged = false;
+      $rootScope.logged = false;
+    }
 
     $scope.loginEmail = function(user) {
       factoryLogin.get(user,function(user){
-        $rootScope.user = user;
+        serviceLogin.setUser(
+          user.name,
+          user.email,
+          0,
+          user.token
+        );
+        factoryRegister.save(serviceLogin.getUser());
+        $rootScope.user = serviceLogin.getUser();
         console.log($rootScope.user);
         $state.go('app.profile');
         $rootScope.fblogged = false;
         $rootScope.logged = true;
       },function(error){
-        console.log(error);
+        $ionicPopup.alert({
+          title: 'Erro!',
+          template: 'Login Falhou'
+        });
       })
     }
 })
