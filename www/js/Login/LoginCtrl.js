@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('LoginCtrl', function($scope, $state, factoryLogin, factoryRegister, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $rootScope) {
+.controller('LoginCtrl', function($scope, $state, factoryLogin, factoryRegister,serviceLogin,$stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $rootScope) {
 
   // Set Header
 $scope.$parent.showHeader();
@@ -15,17 +15,23 @@ $scope.$parent.setHeaderFab(false);
     ref.authWithOAuthPopup("facebook", function(error, authData) {
       if (error) {
         console.log("Login Failed!", error);
-      } else {
+      }
+
+      else {
         $rootScope.fblogged = true;
         $rootScope.logged = true;
         $rootScope.user = authData;
         console.log(authData);
+
         var user = {
           name: authData.facebook.displayName,
           email: authData.facebook.email,
           score: '0',
-          idFacebook: authData.facebook.id
+          idFacebook: authData.facebook.id,
+          password: authData.facebook.id,
+          password_confirmation: authData.facebook.id
         }
+
         factoryRegister.save(user);
 
         console.log("Authenticated successfully:", $scope.user);
@@ -59,7 +65,7 @@ $scope.$parent.setHeaderFab(false);
 
 })
 
-.controller('HomeCtrl', function($scope, $state, factoryLogin, factoryRegister, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk, $rootScope) {
+.controller('HomeCtrl', function($scope, $state, factoryLogin, factoryRegister, $stateParams, serviceLogin,$timeout, ionicMaterialMotion, ionicMaterialInk, $rootScope) {
     $scope.$parent.clearFabs();
     $timeout(function() {
         $scope.$parent.hideHeader();
@@ -72,21 +78,22 @@ $scope.$parent.setHeaderFab(false);
       ref.authWithOAuthPopup("facebook", function(error, authData) {
         if (error) {
           console.log("Login Failed!", error);
-        } else {
+        }
+
+        else {
           $rootScope.fblogged = true;
           $rootScope.logged = true;
           $rootScope.user = authData;
-          console.log(authData);
-          var user = {
-            name: authData.facebook.displayName,
-            email: authData.facebook.email,
-            score: '0',
-            idFacebook: authData.facebook.id
-          }
-          factoryRegister.save(user);
 
-          console.log("Authenticated successfully:", $scope.user);
+          serviceLogin.setUser(
+            authData.facebook.name,
+            authData.facebook.email,
+            0,
+            authData.facebook.id
+          );
+          factoryRegister.save(serviceLogin.getUser());
           $state.go('app.profile');
+
         }
       });
     }
