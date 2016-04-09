@@ -3,9 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagination','ionic-material','ionMdInput'])
+angular.module('starter', ['ionic', 'ngResource', 'angularUtils.directives.dirPagination', 'ionic-material', 'ionMdInput', ])
 
-  .run(function($ionicPlatform) {
+.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
       if (window.cordova && window.cordova.plugins.Keyboard) {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -35,7 +35,7 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
         controller: 'AppCtrl'
       })
 
-      .state('app.ranking', {
+    .state('app.ranking', {
         url: '/ranking',
         views: {
           'menuContent': {
@@ -51,16 +51,16 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
             templateUrl: 'templates/profile.html',
             controller: 'LoginCtrl'
           },
-            'fabContent': {
-              template: '<div class="button-fab"></div>',
-                controller: function ($timeout) {
-                    /*$timeout(function () {
-                        document.getElementById('fab-profile').classList.toggle('on');
-                    }, 800);*/
-                }
+          'fabContent': {
+            template: '<div class="button-fab"></div>',
+            controller: function($timeout) {
+              /*$timeout(function () {
+                  document.getElementById('fab-profile').classList.toggle('on');
+              }, 800);*/
             }
+          }
         }
-    })
+      })
       .state('app.email', {
         url: '/email',
         views: {
@@ -77,27 +77,27 @@ angular.module('starter', ['ionic','ngResource','angularUtils.directives.dirPagi
             templateUrl: 'templates/home.html',
             controller: 'HomeCtrl'
           },
-            'fabContent': {
-              template: ''
-            }
+          'fabContent': {
+            template: ''
+          }
         }
       })
       .state('app.game', {
-          url: '/game',
-          views: {
-              'menuContent': {
-                  templateUrl: 'templates/game.html',
-                  controller: 'GameCtrl'
-              },
-              'fabContent': {
-                  template: '<button id="fab-gallery" class="button button-fab button-fab-top-right expanded button-energized-900 drop">Score</button>',
-                  controller: function ($timeout) {
-                      $timeout(function () {
-                          document.getElementById('fab-gallery').classList.toggle('on');
-                      }, 600);
-                  }
-              }
+        url: '/game',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/game.html',
+            controller: 'gameCtrl'
+          },
+          'fabContent': {
+            template: '<button id="fab-gallery" class="button button-fab button-fab-top-right expanded button-energized-900 drop">Score</button>',
+            controller: function($timeout) {
+              $timeout(function() {
+                document.getElementById('fab-gallery').classList.toggle('on');
+              }, 600);
+            }
           }
+        }
       })
       .state('app.signup', {
         url: '/signup',
