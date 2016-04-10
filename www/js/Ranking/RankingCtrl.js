@@ -7,8 +7,6 @@ angular.module('starter')
     console.log(data);
     $scope.users = data.data;
 
-
   });
-
 
 })

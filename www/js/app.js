@@ -49,7 +49,7 @@ angular.module('starter', ['ionic', 'ngResource', 'angularUtils.directives.dirPa
         views: {
           'menuContent': {
             templateUrl: 'templates/profile.html',
-            controller: 'LoginCtrl'
+            controller: 'profileCtrl'
           },
           'fabContent': {
             template: '<div class="button-fab"></div>',
@@ -58,15 +58,6 @@ angular.module('starter', ['ionic', 'ngResource', 'angularUtils.directives.dirPa
                   document.getElementById('fab-profile').classList.toggle('on');
               }, 800);*/
             }
-          }
-        }
-      })
-      .state('app.email', {
-        url: '/email',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/criarEmail.html',
-            controller: 'LoginCtrl'
           }
         }
       })
@@ -104,7 +95,7 @@ angular.module('starter', ['ionic', 'ngResource', 'angularUtils.directives.dirPa
         views: {
           'menuContent': {
             templateUrl: 'templates/signup.html',
-            controller: 'LoginCtrl'
+            controller: 'SignupCtrl'
           }
         }
       });
