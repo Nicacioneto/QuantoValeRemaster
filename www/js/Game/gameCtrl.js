@@ -20,7 +20,7 @@ angular.module('starter')
     }
   }
 
-  $scope.endGame = function(){
+  $scope.end_game = function(){
     var confirmPopup = $ionicPopup.confirm({
       title: 'Fim da partida',
       template: 'Deseja realmente encerrar a partida?'
