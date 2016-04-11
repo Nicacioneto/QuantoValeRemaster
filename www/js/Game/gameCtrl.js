@@ -1,6 +1,6 @@
 angular.module('starter')
 
-.controller('gameCtrl', function($scope, serviceGame, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
+.controller('gameCtrl', function($scope, serviceGame, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion, $ionicPopup) {
 
   var jump = 0;
 
@@ -11,10 +11,30 @@ angular.module('starter')
   $scope.jump_question = function() {
     $scope.values = serviceGame.buttonPress().get();
     jump += 1;
-    console.log("JUMP == ", +jump)
-    if ( jump > 3 ){
-      alert("Você atingiu o limite máximo!");
+    console.log("JUMP == ", +jump);
+    if (jump > 3) {
+      jump = 0;
+      var confirmPopup = $ionicPopup.confirm({
+        title: 'Você atingiu o limite máximo de pular questões!'
+      });
     }
+  }
+
+  $scope.endGame = function(){
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Fim da partida',
+      template: 'Deseja realmente encerrar a partida?'
+    });
+
+    confirmPopup.then(function(answer){
+
+        if (answer){
+          console.log("Encerrar");
+        }
+        else {
+          console.log("Cancelar Encerramento");
+        }
+    })
   }
 
   $scope.$parent.showHeader();
