@@ -1,8 +1,7 @@
 <ion-view view-title="Quanto Vale?">
   <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
     <div class="padding-top">
-      <div class="letter">
-        <button ng-click="bu()"> olá </button>
+      <div class="letter" ng-init="jump()">
         <h4>
             <font>Quanto vale: {{values.ask}}?</font>
         </h4>
@@ -10,3 +9,11 @@
     </div>
   </ion-content>
 </ion-view>
+<div class="tabs tabs-icon-only tabs-blank">
+  <a class="tab-item">
+  <i class="icon ion-android-close"></i>
+  </a>
+  <a class="tab-item" ng-click = "jump_question()">
+  <i class="icon ion-ios-redo"></i>
+  </a>
+</div>
