@@ -90,6 +90,24 @@ angular.module('starter', ['ionic', 'ngResource', 'angularUtils.directives.dirPa
           }
         }
       })
+      .state('app.resetsend', {
+        url: '/resetsend',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/resetsend.html',
+            controller: 'ResetPasswordCtrl'
+          }
+        }
+      })
+      .state('app.resetedit', {
+        url: '/resetedit',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/resetedit.html',
+            controller: 'ResetPasswordCtrl'
+          }
+        }
+      })
       .state('app.signup', {
         url: '/signup',
         views: {
