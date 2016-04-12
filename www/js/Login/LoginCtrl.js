@@ -27,7 +27,7 @@ angular.module('starter')
         serviceLogin.setUser(
           authData.facebook.displayName,
           authData.facebook.email,
-          0,
+          null,
           authData.facebook.id
         );
         factoryRegister.save(serviceLogin.getUser());
@@ -58,7 +58,7 @@ angular.module('starter')
     serviceLogin.setUser(
       null,
       null,
-      0,
+      null,
       null
     );
     factoryRegister.save(serviceLogin.getUser());
@@ -74,7 +74,7 @@ angular.module('starter')
       serviceLogin.setUser(
         user.name,
         user.email,
-        0,
+        user.score,
         user.token
       );
       factoryRegister.save(serviceLogin.getUser());

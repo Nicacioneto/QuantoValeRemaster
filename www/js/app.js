@@ -108,6 +108,15 @@ angular.module('starter', ['ionic', 'ngResource', 'angularUtils.directives.dirPa
           }
         }
       })
+      .state('app.resetkeyenter', {
+        url: '/resetkeyenter',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/resetkeyenter.html',
+            controller: 'ResetPasswordCtrl'
+          }
+        }
+      })
       .state('app.signup', {
         url: '/signup',
         views: {
