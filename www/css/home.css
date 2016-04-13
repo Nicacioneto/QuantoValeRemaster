@@ -60,3 +60,7 @@
 .menu-open .ion-navicon:before {
     content: "\f2ca";
 }
+
+.margin-top-button {
+  margin-top: 0;
+}

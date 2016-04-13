@@ -7,20 +7,22 @@
         </h4>
       </div>
     </div>
-    <ul class="list "ng-repeat="val in values.val">
-      <li class="center">
-        <a id="button">
-          <span>R$ {{val}}</span>
-        </a>
-      </li>
-    </ul>
+    <div class="padding">
+      <ul class="list " ng-repeat="val in values.val">
+        <li class="center">
+          <a id="button">
+            <span>R$ {{val}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </ion-content>
 </ion-view>
-<div class="tabs tabs-icon-only tabs-blank">
-  <a class="tab-item" ng-click = "end_game()">
-  <i class="icon ion-android-close"></i>
+<div class="tabs tabs-icon-only">
+  <a class="tab-item" ng-click="end_game()">
+    <i class="icon ion-android-close"></i>
   </a>
-  <a class="tab-item" ng-click = "jump_question()">
-  <i class="icon ion-ios-redo"></i>
+  <a class="tab-item" ng-click="jump_question()">
+    <i class="icon ion-ios-redo"></i>
   </a>
 </div>

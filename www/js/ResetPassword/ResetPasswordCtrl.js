@@ -4,6 +4,13 @@ angular.module('starter')
   factoryResetPasswordKeyEnter, $ionicPopup, $state, serviceResetPassword,
   factoryResetPasswordEdit, $rootScope) {
 
+  // Set Header
+  $scope.$parent.showHeader();
+  $scope.$parent.clearFabs();
+  $scope.isExpanded = false;
+  $scope.$parent.setExpanded(false);
+  $scope.$parent.setHeaderFab(false);
+
   $scope.resetPassword = function(user) {
     factoryResetPassword.save(user, function(user) {
       $ionicPopup.alert({
@@ -32,7 +39,7 @@ angular.module('starter')
         null
       );
       $rootScope.user = serviceResetPassword.getUser();
-      console.log("User",serviceResetPassword.getUser());
+      console.log("User", serviceResetPassword.getUser());
       $state.go('app.resetedit');
     }, function(error) {
       $ionicPopup.alert({
@@ -50,12 +57,15 @@ angular.module('starter')
     );
     $rootScope.user = serviceResetPassword.getUser();
 
-    factoryResetPasswordEdit.update({key:user.password_reset_key},
-      { user:$rootScope.user }, function(user) {
-        $ionicPopup.alert({
-          title: 'Atenção!',
-          template: 'Troca de Senha efetuada!'
-        });
+    factoryResetPasswordEdit.update({
+      key: user.password_reset_key
+    }, {
+      user: $rootScope.user
+    }, function(user) {
+      $ionicPopup.alert({
+        title: 'Atenção!',
+        template: 'Troca de Senha efetuada!'
+      });
     }, function(error) {
       $ionicPopup.alert({
         title: 'Erro!',
