@@ -117,6 +117,23 @@ angular.module('starter', ['ionic', 'ngResource', 'angularUtils.directives.dirPa
           }
         }
       })
+      .state('app.theme', {
+        url: '/theme',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/theme.html',
+            controller: 'themeCtrl'
+          },
+          'fabContent': {
+            template: '<div class="button-fab"></div>',
+            controller: function($timeout) {
+              /*$timeout(function () {
+                  document.getElementById('fab-profile').classList.toggle('on');
+              }, 800);*/
+            }
+          }
+        }
+      })
       .state('app.signup', {
         url: '/signup',
         views: {
