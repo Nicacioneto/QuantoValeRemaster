@@ -26,7 +26,7 @@ angular.module('starter')
 
 .factory('factoryUpdateScore', function($resource) {
   // return $resource("http://quantovale.herokuapp.com/users/update_score/:email");
-  return $resource("http://quantovale.herokuapp.com/users/update_score/:email", {}, {
+  return $resource("https://quantovaleplay.herokuapp.com/users/update_score/:email", {}, {
       'update': { method:'PATCH',
                   params:{  email:'@email' }
       }

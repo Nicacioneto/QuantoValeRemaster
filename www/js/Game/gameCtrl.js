@@ -37,7 +37,7 @@ angular.module('starter')
         $ionicLoading.hide();
         $ionicPopup.alert({
           title: 'Fim da partida',
-          template: 'Novo Recorde Pessoal! \n Sua pontuação é: '+$rootScope.scoreTotal+'pontos!'
+          template: 'Novo Recorde Pessoal! \n Sua pontuação é: '+$rootScope.scoreTotal+' pontos!'
         });
         $state.go('app.profile');
       }, function(error) {
@@ -46,13 +46,14 @@ angular.module('starter')
           title: 'Erro!',
           template: 'Erro de comunicação com o servidor! Pontuação nao enviada!'
         });
+        $state.go('app.profile');
       });
     }else {
       $ionicPopup.alert({
         title: 'Fim da partida',
         template: 'Sua pontuação é: '+$rootScope.scoreTotal+'pontos!'
       });
-      $state.go('app.home');
+      $state.go('app.profile');
     }
   }
 
@@ -167,13 +168,14 @@ angular.module('starter')
               title: 'Fim da partida',
               template: 'Novo Recorde Pessoal! \n Sua pontuação é: '+$rootScope.scoreTotal+'pontos!'
             });
-            $state.go('app.home');
+            $state.go('app.profile');
           }, function(error) {
             $ionicLoading.hide();
             $ionicPopup.alert({
               title: 'Erro!',
               template: 'Erro de comunicação com o servidor! Pontuação nao enviada!'
             });
+            $state.go('app.profile');
           });
         }else {
           $ionicLoading.hide();
