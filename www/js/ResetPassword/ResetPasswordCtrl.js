@@ -2,7 +2,7 @@ angular.module('starter')
 
 .controller('ResetPasswordCtrl', function($scope, factoryResetPassword,
   factoryResetPasswordKeyEnter, $ionicPopup, $state, serviceResetPassword,
-  factoryResetPasswordEdit, $rootScope) {
+  factoryResetPasswordEdit, $rootScope, $ionicLoading) {
 
   // Set Header
   $scope.$parent.showHeader();
@@ -12,7 +12,11 @@ angular.module('starter')
   $scope.$parent.setHeaderFab(false);
 
   $scope.resetPassword = function(user) {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
     factoryResetPassword.save(user, function(user) {
+      $ionicLoading.hide();
       $ionicPopup.alert({
         title: 'Atenção!',
         template: 'Foi enviado um código para o seu email!'
@@ -20,6 +24,7 @@ angular.module('starter')
       console.log(user);
       $state.go('app.resetkeyenter');
     }, function(error) {
+      $ionicLoading.hide();
       $ionicPopup.alert({
         title: 'Erro!',
         template: 'Email invalido, verifique os dados ou se o email já foi cadastrado'
@@ -28,7 +33,11 @@ angular.module('starter')
   }
 
   $scope.resetPasswordKeyEnter = function(user) {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
     factoryResetPasswordKeyEnter.get(user, function(user) {
+      $ionicLoading.hide();
       $ionicPopup.alert({
         title: 'Atenção!',
         template: 'Chave confirmada!'
@@ -42,6 +51,7 @@ angular.module('starter')
       console.log("User", serviceResetPassword.getUser());
       $state.go('app.resetedit');
     }, function(error) {
+      $ionicLoading.hide();
       $ionicPopup.alert({
         title: 'Erro!',
         template: 'Chave expirada ou invalida!'
@@ -50,6 +60,9 @@ angular.module('starter')
   }
 
   $scope.resetPasswordEdit = function(user) {
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
     serviceResetPassword.setUser(
       $rootScope.user.password_reset_key,
       user.password,
@@ -62,11 +75,14 @@ angular.module('starter')
     }, {
       user: $rootScope.user
     }, function(user) {
+      $ionicLoading.hide();
       $ionicPopup.alert({
         title: 'Atenção!',
         template: 'Troca de Senha efetuada!'
       });
+      $state.go('app.home');
     }, function(error) {
+      $ionicLoading.hide();
       $ionicPopup.alert({
         title: 'Erro!',
         template: 'Senha invalida!'

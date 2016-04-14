@@ -81,7 +81,7 @@ angular.module('starter', ['ionic', 'ngResource', 'angularUtils.directives.dirPa
             controller: 'gameCtrl'
           },
           'fabContent': {
-            template: '<button id="fab-gallery" class="button button-fab button-fab-top-right expanded button-energized-900 drop">Score</button>',
+            template: '<button id="fab-gallery" class="button button-fab button-fab-top-right expanded button-energized-900 drop" ng-controller="gameCtrl">{{buttons.label}}</button>',
             controller: function($timeout) {
               $timeout(function() {
                 document.getElementById('fab-gallery').classList.toggle('on');

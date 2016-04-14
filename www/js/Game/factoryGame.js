@@ -22,6 +22,13 @@ angular.module('starter')
       previousId = 0;
     }
   }
+})
 
-
+.factory('factoryUpdateScore', function($resource) {
+  // return $resource("http://quantovale.herokuapp.com/users/update_score/:email");
+  return $resource("http://localhost:3000/users/update_score/:email", {}, {
+      'update': { method:'PATCH',
+                  params:{  email:'@email' }
+      }
+  })
 })

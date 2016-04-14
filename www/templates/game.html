@@ -10,7 +10,7 @@
     <div class="padding">
       <ul class="list " ng-repeat="val in values.val">
         <li class="center">
-          <a id="button">
+          <a id="button" ng-click="compare({{val}}, {{values.trueval}})">
             <span>R$ {{val}}</span>
           </a>
         </li>
