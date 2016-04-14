@@ -49,6 +49,7 @@ angular.module('starter')
         $state.go('app.profile');
       });
     }else {
+      $ionicLoading.hide();
       $ionicPopup.alert({
         title: 'Fim da partida',
         template: 'Sua pontuação é: '+$rootScope.scoreTotal+'pontos!'
