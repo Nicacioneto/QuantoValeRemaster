@@ -130,7 +130,7 @@ angular.module('starter')
     $scope.values = serviceGame.buttonPress().get();
   }
 
-  $scope.jump_question = function() {
+  $scope.jumpQuestion = function() {
     jump += 1;
     if (jump > 3) {
       var popup = $ionicPopup.alert({
@@ -176,6 +176,7 @@ angular.module('starter')
             });
           });
         }else {
+          $ionicLoading.hide();
           $ionicPopup.alert({
             title: 'Fim da partida',
             template: 'Sua pontuação é: '+$rootScope.scoreTotal+'pontos!'
@@ -184,6 +185,7 @@ angular.module('starter')
         }
       }
       else {
+        $ionicLoading.hide();
         console.log("Cancelar Encerramento");
       }
     })
