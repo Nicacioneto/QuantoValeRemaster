@@ -46,7 +46,10 @@ angular.module('starter')
   $scope.create = function(user) {
 
     factoryRegister.save(user, function(user) {
-      alert("Succes")
+      $ionicPopup.alert({
+        title: 'Confirmado!',
+        template: 'Cadastrado com sucesso!'
+      });
       console.log(user);
     }, function(error) {
       $ionicPopup.alert({

@@ -1,7 +1,7 @@
 angular.module('starter')
 
 .constant('CALL_RAILS', {
-  url: "http://localhost:3000/questoes/:id"
+  url: "https://quantovaleplay.herokuapp.com/questoes/:id"
 })
 
 .factory('serviceGame', function(CALL_RAILS, $resource) {
@@ -26,7 +26,7 @@ angular.module('starter')
 
 .factory('factoryUpdateScore', function($resource) {
   // return $resource("http://quantovale.herokuapp.com/users/update_score/:email");
-  return $resource("http://localhost:3000/users/update_score/:email", {}, {
+  return $resource("http://quantovale.herokuapp.com/users/update_score/:email", {}, {
       'update': { method:'PATCH',
                   params:{  email:'@email' }
       }
